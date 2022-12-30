@@ -7,6 +7,7 @@ body {
     justify-content: center;
     align-items: center;
 }
+
 button {
     border-style: none;
     background-color: #4CC9F0;
@@ -22,6 +23,7 @@ button {
 .op {
     background-color: #4361EE;
 }
+
 .calc {
     display: flex;
     flex-direction: column;
@@ -32,12 +34,14 @@ button {
     width: 20%;
     padding: 10px;
 }
+
 .row-1, .row-2, .row-3, .row-4 {
     display: flex;
     flex-direction: row;
     width: 95%;
     justify-content: center;
 }
+
 .screen {
     background-color: #222222;
     border: #CCCCCC solid 3px;

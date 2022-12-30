@@ -11,6 +11,10 @@ let inputOp = "";
 
 function display(keyInput) {
     const currentDisp = document.querySelector('.disp');
+    const crashMat = "Not TOday N00B!!!";
+    if (currentDisp.textContent == crashMat) {
+        currentDisp.textContent = "";
+    }
     if (keyInput == "+" || keyInput == "-" || keyInput == "*" || keyInput == "/") {
         if (inputOp != "") {
             let solution = operate(inputOp, input1, input2);
@@ -36,11 +40,22 @@ function display(keyInput) {
     } else {
         if (inputOp != "") {
             input2 = input2 + keyInput;
+            if (input1 == "00" && inputOp == "/" && input2 == "00") {
+                currentDisp.textContent = crashMat;
+                input1 = 0;
+                input2 = 0
+                inputOp = "";
+            } else {
             currentDisp.textContent = currentDisp.textContent + keyInput;
+            }
         } else {
             input1 = input1 + keyInput;
             currentDisp.textContent = currentDisp.textContent + keyInput;
         }
+    }
+    if (currentDisp.textContent.length > 16) {
+        const display = currentDisp.textContent.slice(0,16);
+        currentDisp.textContent = display;
     }
 }
 
@@ -76,7 +91,7 @@ function operate(operator, operand1, operand2) {
     } else if (operator == "/") {
         return divide(operand1, operand2);
     } else {
-        return "broke";
+        return
     }
 }
 
