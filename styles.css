@@ -9,21 +9,28 @@ body {
 }
 button {
     border-style: none;
-    background-color: aqua;
+    background-color: #4CC9F0;
     color: black;
+    border: #CCCCCC solid 2px;;
     font-size: 24px;;
     padding: 6px;
     margin: 10px;
     width: 20%;
     border-radius: 5px;
 }
+
+.op {
+    background-color: #4361EE;
+}
 .calc {
     display: flex;
     flex-direction: column;
     align-items: center;
     border: #CCCCCC solid 3px;
-    background-color: #444477;
-    width: 30%;
+    border-radius: 5px;;
+    background-color: #3A0CA3;
+    width: 20%;
+    padding: 10px;
 }
 .row-1, .row-2, .row-3, .row-4 {
     display: flex;
@@ -32,7 +39,7 @@ button {
     justify-content: center;
 }
 .screen {
-    background-color: black;
+    background-color: #222222;
     border: #CCCCCC solid 3px;
     text-align: right;
     font-size: 24px;
