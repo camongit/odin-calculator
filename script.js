@@ -8,30 +8,46 @@ buttons.forEach((button) => {
 let input1 = 0;
 let input2 = 0;
 let inputOp = "";
-let currentEq = "";
 
 function display(keyInput) {
     const currentDisp = document.querySelector('.disp');
-
     if (keyInput == "+" || keyInput == "-" || keyInput == "*" || keyInput == "/") {
-        input1 = currentEq;
+        if (inputOp != "") {
+            let solution = operate(inputOp, input1, input2);
+            currentDisp.textContent = solution + `${keyInput} `;
+            input1 = solution;
+            input2 = 0;
+            inputOp = keyInput;
+        } else {
         inputOp = keyInput;
+        currentDisp.textContent = currentDisp.textContent + ` ${keyInput} `;
+        }
     } else if (keyInput == "=") {
-        operate(inputOp, input1, input2);
+        let solution = operate(inputOp, input1, input2);
+        currentDisp.textContent = solution;
+        input1 = solution;
+        input2 = 0;
+        inputOp = "";
     } else if (keyInput == "clear") {
         currentDisp.textContent = "";
-        currentEq = "";
         inputOp = "";
         input1 = 0;
         input2 = 0;
     } else {
-        currentEq = currentDisp.textContent;
-        currentDisp.textContent = currentEq + keyInput;
+        if (inputOp != "") {
+            input2 = input2 + keyInput;
+            currentDisp.textContent = currentDisp.textContent + keyInput;
+        } else {
+            input1 = input1 + keyInput;
+            currentDisp.textContent = currentDisp.textContent + keyInput;
+        }
     }
 }
 
 function add(num1, num2) {
-    let sum = num1 + num2;
+    let int1 = parseInt(num1);
+    let int2 = parseInt(num2);
+    let sum = (int1 + int2);
     return sum;
 }
 
